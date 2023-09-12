@@ -11,5 +11,14 @@ int main(void) {
 }
 
 int factorial(int n) {
-    return 42;
+    // int fac = 1;
+    // for (int i = 1; i <= n; i++) {
+    //     fac *= i;
+    // }
+    // return fac;
+
+    if (n == 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
 }
