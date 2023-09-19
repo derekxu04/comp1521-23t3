@@ -9,20 +9,23 @@ int main(void) {
     scanf("%d", &n);
 
     int fac = 1;
+
+loop_init:
+
     int i = 1;
 
-fac_loop:
-    // Loop exit condition, the inverse of 'while(i <= n)'
-    if (i > n) goto epilogue;
+loop_cond:
 
-    // Loop body
-    fac *= i;
+    if (i > n) goto loop_end;
 
-    // Increment the loop counter and loop back to the top.
+loop_body:
+
+    fac = fac * i;
+
     i++;
-    goto fac_loop;
+    goto loop_cond;
 
-epilogue:
+loop_end:
 
     printf("n! = %d\n", fac);
     return 0;
