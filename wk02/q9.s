@@ -15,7 +15,7 @@ main:
 
 	move $t0, $v0
 
-	li FAC, 1		# int fac = 1;
+	li $t1, 1		# int fac = 1;
 
 loop_init:
 	li $t2, 1		# int i = 1;
