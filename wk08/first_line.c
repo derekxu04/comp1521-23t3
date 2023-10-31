@@ -9,8 +9,27 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
+    FILE *fp = fopen(argv[1], "r");
 
-    // TODO: complete this function
+    if (fp == NULL) {
+        perror(argv[1]);
+        exit(1);
+    }
+
+    /*
+    char line[256];
+    fgets(line, 256, fp);
+    printf("%s\n", line);
+    */
+
+    int c = fgetc(fp);
+    while (c != EOF && c != '\n') {
+        printf("%c", c);
+
+        c = fgetc(fp);
+    }
+
+    fclose(fp);
 
     return 0;
 }

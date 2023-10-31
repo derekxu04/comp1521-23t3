@@ -7,8 +7,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char *argv[]) {
-    // TODO: complete this function.
+int main(int argc, char *argv[]) {\
+    if (argc <= 1) {
+        fprintf(stderr, "Please provide a filename\n");
+        exit(1);
+    }
+
+    FILE *fp = fopen(argv[1], "a");
+
+    if (fp == NULL) {
+        perror(argv[1]);
+        exit(1);
+    }
+
+    int c = getchar();
+    while (c != '\n') {
+        // fprintf(fp, "%c", c);
+        fputc(c, fp);
+
+        c = getchar();
+    }
+
+    fputc('\n', fp);
+
+    fclose(fp);
     return 0;
 }
 
